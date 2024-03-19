@@ -24,9 +24,12 @@
 ### 调试（以 VSCode 为例）
 
 * 依赖安装
-  1. 更新`submodule`: `git submodule update --init --recursive`
-  2. 安装`pnpm`: `npm install -g pnpm`
-  3. 打开终端输入`pnpm install`
+
+  ```bash
+  git submodule update --init --recursive  # 更新`submodule`
+  npm install -g pnpm  # 安装`pnpm`
+  pnpm install
+  ```
 
 * 调试 main 进程：
   1. <kbd>Ctrl</kbd>/<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> 呼出命令面板
@@ -36,6 +39,32 @@
 
 * 调试 renderer 进程:
   1. 按照上述步骤启动即可，会帮你打开 Chrome Devtools，且带有最新的 Vue Dev 插件
+ 
+## 自行编译
+
+可以自行编译获取最新版本的应用（`dev` 分支）：  
+(请确保通过包管理器或自行安装了 `cross-env`, `zip`)
+
+- 首先得到编译产物：
+
+```bash
+git submodule update --init --recursive  # 更新`submodule`
+npm install -g pnpm  # 安装`pnpm`
+pnpm install
+pnpm run make
+```
+
+- 确保权限：
+
+```bash
+chown -R $(whoami) ./out/maa-x-linux-x64/
+```
+
+- 启动应用：
+
+```bash
+./out/maa-x-linux-x64/maa-x
+```
 
 ### QQ 群
 
